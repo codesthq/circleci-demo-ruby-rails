@@ -1,0 +1,15 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - log/**/*
+    - tmp/**/*
+    - vendor/**/*
+
+Metrics/LineLength:
+  Max: 125
+
+Style/Documentation:
+  Enabled: false
