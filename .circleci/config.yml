@@ -75,6 +75,10 @@ jobs:
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       - run:
+          name: Run brakeman
+          command: bundle exec brakeman --no-progress --exit-on-warn --rails5
+
+      - run:
           name: Run rubocop
           command: |
             bundle exec rubocop --require rubocop/formatter/junit_formatter \
