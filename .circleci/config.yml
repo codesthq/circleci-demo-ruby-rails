@@ -74,6 +74,12 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
+      - run:
+          name: Run rubocop
+          command: |
+            bundle exec rubocop --require rubocop/formatter/junit_formatter \
+                                --format RuboCop::Formatter::JUnitFormatter \
+                                --out test_results/rubocop.xml
 
       # Save test results for timing analysis
       - store_test_results:
